@@ -2,31 +2,33 @@ import { Body, Controller, Get, Param, Post, Put } from "@nestjs/common";
 import { PecaService } from "./peca.service";
 import { PecaDto } from "./peca.dto";
 import { TResponse } from "src/app.type";
+import { PecaEntity } from "./peca.entity";
 
 @Controller('/peca')
 export class PecaController {
   constructor(private readonly pecaService: PecaService) {}
 
   @Post('/')
-  adicionaPeca(@Body() peca: PecaDto): TResponse.Post {
-    return this.pecaService.adicionaPeca(peca);
+  async adicionaPeca(@Body() peca: PecaDto): Promise<TResponse.Post> {
+    return await this.pecaService.adicionaPeca(peca);
   }
 
   @Get('/')
-  exibePecas(): PecaDto[] {
-    return this.pecaService.exibePecas();
+  async exibePecas(): Promise<PecaEntity[]> {
+    return await this.pecaService.exibePecas();
   } 
 
   @Get('/:id')
-  exibePecaPorId(@Param() id: number): PecaDto {
-    return this.pecaService.exibePecaPorId(id);
+  async exibePecaPorId(@Param('id') id: number): Promise<PecaEntity> {
+    
+    return await this.pecaService.exibePecaPorId(id);
   }
 
   @Put('/:id')
-  atualizaPeca(
-    @Param() id: number,
+  async atualizaPeca(
+    @Param('id') id: number,
     @Body() peca: PecaDto, 
-  ): TResponse.Put {
-    return this.pecaService.atualizaPeca(peca);
+  ): Promise<TResponse.Put> {
+    return await this.pecaService.atualizaPeca(id, peca);
   }
 }

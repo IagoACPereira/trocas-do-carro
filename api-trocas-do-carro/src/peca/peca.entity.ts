@@ -8,7 +8,7 @@ export class PecaEntity {
   @Column()
   nome: string;
 
-  @Column()
+  @Column({ type: 'decimal', precision: 5, scale: 2 })
   valor: number;
 
   @Column()
