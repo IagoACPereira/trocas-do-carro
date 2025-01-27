@@ -8,14 +8,14 @@ export class PecaDto {
   @IsNotEmpty()
   @IsNumber()
   valor: number;
+  
+  @IsNotEmpty()
+  @IsNumber()
+  km_troca: number;
 
   @IsNotEmpty()
   @IsDateString()
   data: string;
-
-  @IsNotEmpty()
-  @IsNumber()
-  km_troca: number;
 
   @IsNotEmpty()
   @IsNumber()
