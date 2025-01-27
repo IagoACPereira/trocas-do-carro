@@ -1,7 +1,7 @@
-import { IsNotEmpty, IsNumber } from 'class-validator';
+import { IsNotEmpty, IsNumber, IsString } from 'class-validator';
 
-export class QuilometragemDto {
+export class KmDto {
   @IsNotEmpty()
-  @IsNumber()
-  km: number;
+  @IsString()
+  quantidade: string;
 }
