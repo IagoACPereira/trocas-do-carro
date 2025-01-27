@@ -6,9 +6,7 @@ import { PecaService } from './peca.service';
 import { PecaController } from './peca.controller';
 
 @Module({
-  imports: [
-    TypeOrmModule.forFeature([PecaEntity, KmEntity]),
-  ],
+  imports: [TypeOrmModule.forFeature([PecaEntity, KmEntity])],
   controllers: [PecaController],
   providers: [PecaService],
 })

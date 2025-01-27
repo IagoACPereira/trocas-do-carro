@@ -1,8 +1,6 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { KmDto } from './km/km.dto';
-import { PecaDto } from './peca/peca.dto';
 import { KmModule } from './km/km.module';
 import { PecaModule } from './peca/peca.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
@@ -11,7 +9,7 @@ import { PecaEntity } from './peca/peca.entity';
 
 @Module({
   imports: [
-    KmModule, 
+    KmModule,
     PecaModule,
     TypeOrmModule.forRoot({
       type: 'postgres',
@@ -22,7 +20,7 @@ import { PecaEntity } from './peca/peca.entity';
       database: 'trocas_do_carro',
       entities: [KmEntity, PecaEntity],
       synchronize: true,
-    })
+    }),
   ],
   controllers: [AppController],
   providers: [AppService],
